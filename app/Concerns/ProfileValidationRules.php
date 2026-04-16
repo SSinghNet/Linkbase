@@ -17,6 +17,7 @@ trait ProfileValidationRules
     {
         return [
             'name' => $this->nameRules(),
+            'username' => $this->nameRules(),
             'email' => $this->emailRules($userId),
         ];
     }
