@@ -21,10 +21,10 @@
                 <p class="text-xs font-semibold uppercase tracking-[0.3em] text-sky-600 dark:text-sky-300">
                     {{ __('Yourbase') }}
                 </p>
-                <flux:heading size="xl" class="max-w-2xl">
+                <flux:heading size="xl" class="max-w-2xl text-zinc-100">
                     {{ __('Shape the page people land on when they click your links.') }}
                 </flux:heading>
-                <flux:text class="max-w-xl text-base text-zinc-600 dark:text-zinc-300">
+                <flux:text class="max-w-xl text-base text-zinc-300">
                     {{ __('Edit your profile, tune the visual theme, and keep every destination link current.') }}
                 </flux:text>
             </div>
