@@ -68,6 +68,31 @@ test('updating an icon re-renders the current font awesome classes immediately',
         ->assertSeeHtml('fa-brands fa-github');
 });
 
+test('preview reflects the public profile layout without repeating the handle inside the card', function () {
+    $user = User::factory()->create([
+        'name' => 'Preview Person',
+        'username' => 'preview-person',
+        'bio' => 'A short preview bio.',
+    ]);
+
+    $user->links()->create([
+        'title' => 'Portfolio',
+        'url' => 'https://example.com/portfolio',
+        'icon' => 'fa-solid fa-link',
+        'order' => 1,
+        'is_active' => true,
+    ]);
+
+    $this->actingAs($user);
+
+    $html = Livewire::test('yourbase')->html();
+
+    expect(substr_count($html, '@preview-person'))->toBe(1)
+        ->and($html)->toContain('A short preview bio.')
+        ->and($html)->toContain('Portfolio')
+        ->and($html)->toContain('radial-gradient(circle at top, color-mix(in srgb, var(--yb-accent) 20%, transparent), transparent 34%)');
+});
+
 test('links can be reordered through the drag sort handler', function () {
     $user = User::factory()->create();
 

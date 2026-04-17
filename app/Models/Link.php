@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use Carbon\CarbonInterface;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -41,6 +43,13 @@ class Link extends Model
     public function scopeOrdered($query)
     {
         return $query->orderBy('order');
+    }
+
+    public function scopeWithClicksCountWithinPeriod(Builder $query, ?CarbonInterface $startDate, ?CarbonInterface $endDate): Builder
+    {
+        return $query->withCount([
+            'clicks as filtered_clicks_count' => fn (Builder $query) => $query->withinPeriod($startDate, $endDate),
+        ]);
     }
 
     // Helpers
