@@ -8,11 +8,24 @@
     :heading="__('Curate the link stack')"
     :subheading="__('Drag rows into order and keep each destination distinct.')"
 >
+    <flux:text class="m-2 text-xs text-zinc-500 dark:text-zinc-400">
+            {{ __('Use any Font Awesome class list for icons.') }}
+            <a
+                href="https://fontawesome.com/icons"
+                target="_blank"
+                rel="noreferrer noopener"
+                class="font-medium text-sky-600 underline underline-offset-2 dark:text-sky-300"
+            >
+                {{ __('Browse Font Awesome icons') }}
+            </a>
+    </flux:text>
     <x-slot:actions>
         <flux:button variant="primary" type="button" wire:click="addLink">
             {{ __('Add link') }}
         </flux:button>
     </x-slot:actions>
+
+    
 
     <form wire:submit="saveLinks" class="space-y-4">
         <div wire:sort="sortLinks" class="space-y-4">
@@ -27,6 +40,7 @@
                 </div>
             @endforelse
         </div>
+        
 
         <div class="flex items-center justify-between gap-4 pt-2">
             <span></span>

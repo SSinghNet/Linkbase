@@ -19,7 +19,7 @@
         <div class="space-y-5">
             <div class="space-y-2">
                 <p class="text-xs font-semibold uppercase tracking-[0.3em] text-sky-600 dark:text-sky-300">
-                    {{ __('Yourbase') }}
+                    {{ __('YourBase') }}
                 </p>
                 <flux:heading size="xl" class="max-w-2xl text-zinc-100">
                     {{ __('Shape the page people land on when they click your links.') }}
@@ -32,6 +32,9 @@
             <div class="flex flex-wrap gap-3 text-sm text-zinc-600 dark:text-zinc-300">
                 <div class="rounded-full border border-white/70 bg-white/80 px-4 py-2 shadow-sm dark:border-white/10 dark:bg-white/5">
                     {{ trans_choice('{0} No links yet|{1} :count active link|[2,*] :count active links', $activeLinkCount, ['count' => $activeLinkCount]) }}
+                </div>
+                <div class="rounded-full border border-white/70 bg-white/80 px-4 py-2 shadow-sm dark:border-white/10 dark:bg-white/5">
+                    <a target="_blank" href="{{ route('profile', ['username' => $username]) }}">{{ '@'.$username }}</a>
                 </div>
             </div>
         </div>

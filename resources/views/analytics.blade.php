@@ -1,5 +1,5 @@
 <x-layouts::app :title="__('Analytics')">
-    <div class="min-h-screen bg-zinc-50/70 px-4 py-6 dark:bg-zinc-950/40 sm:px-6 lg:px-8">
+    <div class="min-h-screen">
         <div class="mx-auto flex w-full max-w-7xl flex-col gap-6">
             <x-yourbase.panel
                 eyebrow="Performance"
